@@ -18,7 +18,7 @@ app.get('/', (req,res)=>res.send('h'))
 
 app.use('', require('./routes/users'))
 
-app.get('/api/user',cors(), verifyToken, controllers.getUserByID)
+app.get('/api/user', verifyToken, controllers.getUserByID)
  
 
 app.post('/api/user/cursos/:_id', cors(), cursosCtrl.createCursos)
