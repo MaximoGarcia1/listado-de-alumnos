@@ -1,16 +1,18 @@
 const mongoose = require('mongoose')
 require ('dotenv').config()
 
-const URI = process.env.MONGODB_URI 
-? URI
-:'mongodb+srv://maximo:MBG28032006@cluster0.8c0b957.mongodb.net/?retryWrites=true&w=majority'
+const connectDB = async()=> {
+    try{
+        await mongoose.connect(
+            "mongodb+srv://maximo:<password>@cluster0.8c0b957.mongodb.net/?retryWrites=true&w=majority"
 
-mongoose.connect(URI, {
-    useNewUrlParser: true,
-})
+        )
+        console.log("db connected")
+    } catch (error){
+        console.error(error)
+    }
+}
 
-const connection = mongoose.connection
+module.exports = {connectDB}
 
-connection.once('open',()=>{
-    console.log("BD CONECTADA")
-})
+
