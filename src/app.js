@@ -12,8 +12,6 @@ const verifyToken = require('../middlewares/verifyToken');
 const cursosCtrl = require ('./controllers/cursos.controller')
 const StudentCtrl = require('./controllers/student.controller')
 
-
-
 app.set('port', process.env.PORT || 4000) 
 app.get('/', (req,res)=>res.send('h'))
 
