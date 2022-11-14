@@ -11,10 +11,20 @@ const StudentCtrl = require('./controllers/student.controller')
 
 // settings
 app.use(cors({
+    
     origin:'*',
     methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
 }))
 app.use(express.json()) 
+
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "https://listado-de-alumnos-maximogarcia.vercel.app");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
 
 app.set('port', process.env.PORT || 4000) 
 app.get('/', (req,res)=>res.send('h'))
@@ -25,7 +35,7 @@ app.use('', require('./routes/users'))
 app.get('/api/user', verifyToken, controllers.getUserByID)
  
 
-app.post('/api/user/cursos/:_id',cors(), cursosCtrl.createCursos)
+app.post('/api/user/cursos/:_id', cors(), cursosCtrl.createCursos)
 app.get('/api/user/:_id/cursos', cors(),cursosCtrl.getCursos)
 app.delete('/api/user/:_id1/curso/:_id2/delete',cors(), cursosCtrl.deleteCurso)
 app.get('/api/user/:_id1/curso/:_id2', cors(),cursosCtrl.getCurso)
