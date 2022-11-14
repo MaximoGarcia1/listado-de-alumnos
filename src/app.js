@@ -14,7 +14,7 @@ app.use(cors())
 app.use(express.json()) 
 
 app.set('port', process.env.PORT || 4000) 
-app.get('/', (req,res)=>res.send('hola'))
+app.get('/', (req,res)=>res.send('h'))
 
 
 app.use('', require('./routes/users'))
