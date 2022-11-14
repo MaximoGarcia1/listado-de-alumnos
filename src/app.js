@@ -4,20 +4,7 @@ connectDB()
 const app = express();
 const cors = require('cors')
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://listado-de-alumnos-maximogarcia.vercel.app");
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    next();
-  });
 
-  app.use(cors({
-    
-    origin:'*',
-    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
-}))
 app.use(express.json()) 
   
 const controllers = require('./controllers');
