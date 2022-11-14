@@ -1,6 +1,7 @@
 require('dotenv').config()
 const app = require('./src/app');
 require('./src/app');
+const cors = require('cors')
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "https://listado-de-alumnos-maximogarcia.vercel.app");
