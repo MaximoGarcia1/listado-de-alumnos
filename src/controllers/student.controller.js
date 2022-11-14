@@ -9,6 +9,11 @@ StudentCtrl.getStudents = async (req, res) => {
     res.json(user.students)
 }
 
+StudentCtrl.getStudentsGral = async (req, res) => {
+    const student = await Student.find()
+    res.json(student)
+}
+
 StudentCtrl.getStudent = async (req, res) => {
     const studentID = req.params
     const estudiante = await Student.findById(studentID)

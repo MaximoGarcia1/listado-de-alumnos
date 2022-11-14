@@ -29,6 +29,7 @@ app.get('/api/user/:_id/cursos', cursosCtrl.getCursos)
 app.delete('/api/user/:_id1/curso/:_id2/delete', cursosCtrl.deleteCurso)
 app.get('/api/user/:_id1/curso/:_id2', cursosCtrl.getCurso)
 
+app.get('/api/students/get', StudentCtrl.getStudentsGral)
 app.post('/api/user/:_id1/curso/students/:_id2', StudentCtrl.createStudent)
 app.get('/api/user/curso/:_id/students', StudentCtrl.getStudents) 
 app.get('/api/user/curso/student/:_id', StudentCtrl.getStudent)
