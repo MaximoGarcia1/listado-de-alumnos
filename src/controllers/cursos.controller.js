@@ -10,6 +10,7 @@ cursosCtrl.getCursos = async (req, res) => {
 }
  
 cursosCtrl.createCursos = async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     const { curso, division, materia } = req.body
     const user = await Usuario.findById(req.params)
     const newCurso = new Curso({
@@ -25,6 +26,7 @@ cursosCtrl.createCursos = async (req, res) => {
 }
 
 cursosCtrl.getCurso = async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     const cursoID = req.params._id2
     const userID = req.params._id1
     
@@ -37,6 +39,7 @@ cursosCtrl.getCurso = async (req, res) => {
 
 
 cursosCtrl.deleteCurso = async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
 
     const cursoID = req.params._id2 
     const authorID = req.params._id1
