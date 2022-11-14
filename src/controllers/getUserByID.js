@@ -1,6 +1,7 @@
 const Usuario = require('../models/usuario')
 
 const getUserByID = async (req,res)=>{
+    res.header("Access-Control-Allow-Origin", "*");
     const {id} = req.user
 
     if(id.length === 24){
