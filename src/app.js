@@ -31,7 +31,7 @@ app.get('/api/students/get', cors(),StudentCtrl.getStudentsGral)
 app.post('/api/user/:_id1/curso/students/:_id2', cors(),StudentCtrl.createStudent)
 app.get('/api/user/curso/:_id/students', cors(),StudentCtrl.getStudents) 
 app.get('/api/user/curso/student/:_id', cors(),StudentCtrl.getStudent)
-app.put('/api/student/:_id',cors(),StudentCtrl.updateStudent)
+app.put('/api/student/:_id', cors() , StudentCtrl.updateStudent)
 app.delete('/api/user/student/:_id1/curso/:_id2/delete', cors(),StudentCtrl.deleteStudent)
 
 module.exports = app;
