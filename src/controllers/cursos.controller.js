@@ -3,8 +3,7 @@ const Usuario = require('../models/usuario')
 const Curso = require('../models/Curso')
 
 cursosCtrl.getCursos = async (req, res) => {
-   
-    res.header("Access-Control-Allow-Origin", "*");
+   res.header("Access-Control-Allow-Origin", "*");
     const user = await Usuario.findById(req.params).populate('cursos')
     
     res.json(user)

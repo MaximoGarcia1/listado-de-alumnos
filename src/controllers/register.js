@@ -3,8 +3,8 @@ const Usuario = require('../models/usuario')
 
 const register = async (req,res)=>{
     res.header("Access-Control-Allow-Origin", "*");
+    
     const{nombre, correo, contraseña} = req.body
-
     Usuario.findOne({correo}).then((usuario)=>{
         if(usuario){
             return res.json({mensaje:'ya existe un usuario con ese correo'})
