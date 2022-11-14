@@ -4,6 +4,7 @@ const Usuario = require('../models/usuario')
 const jwt = require('jsonwebtoken')
 
 const login = async (req,res)=>{
+    res.header("Access-Control-Allow-Origin", "*");
     const{correo, contraseña} = req.body 
     Usuario.findOne({correo}).then((usuario)=>{
         if(!usuario){

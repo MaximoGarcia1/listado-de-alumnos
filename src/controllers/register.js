@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt')
 const Usuario = require('../models/usuario')
 
 const register = async (req,res)=>{
+    res.header("Access-Control-Allow-Origin", "*");
     const{nombre, correo, contraseña} = req.body
 
     Usuario.findOne({correo}).then((usuario)=>{
