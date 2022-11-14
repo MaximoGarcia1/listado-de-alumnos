@@ -11,7 +11,7 @@ const StudentCtrl = require('./controllers/student.controller')
 
 // settings
 app.use(cors({
-    origin:['*','http://localhost:5501'],
+    origin:'*',
     methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
 }))
 app.use(express.json()) 
