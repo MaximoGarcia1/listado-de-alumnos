@@ -10,15 +10,13 @@ const StudentCtrl = require('./controllers/student.controller')
 
 
 // settings
-app.set('port', process.env.PORT || 4000) 
-
-app.get('/', (req,res)=>res.send('hola'))
-
-// middlewares
-app.use(cors());
+app.use(cors())
 app.use(express.json()) 
 
-// routes 
+app.set('port', process.env.PORT || 4000) 
+app.get('/', (req,res)=>res.send('hola'))
+
+
 app.use('', require('./routes/users'))
 
 app.get('/api/user', verifyToken, controllers.getUserByID)
