@@ -10,7 +10,10 @@ const StudentCtrl = require('./controllers/student.controller')
 
 
 // settings
-app.use(cors())
+app.use(cors({
+    origin:'*',
+    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+}))
 app.use(express.json()) 
 
 app.set('port', process.env.PORT || 4000) 
