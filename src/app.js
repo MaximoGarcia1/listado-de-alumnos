@@ -30,6 +30,7 @@ app.put('/api/student/:_id', cors() , StudentCtrl.updateStudent)
 app.delete('/api/user/student/:_id1/curso/:_id2/delete', cors(),StudentCtrl.deleteStudent)
 
 app.post('/register', cors() , registerUser)
+app.post('/login', cors(), loginUser)
 
 
 module.exports = app;
