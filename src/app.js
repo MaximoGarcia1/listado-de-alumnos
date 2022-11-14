@@ -3,19 +3,6 @@ const {connectDB} = require ('./database')
 connectDB()
 const app = express();
 const cors = require('cors')
-const controllers = require('./controllers');
-const verifyToken = require('../middlewares/verifyToken');
-const cursosCtrl = require ('./controllers/cursos.controller')
-const StudentCtrl = require('./controllers/student.controller')
-
-
-// settings
-app.use(cors({
-    
-    origin:'*',
-    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
-}))
-app.use(express.json()) 
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -25,7 +12,20 @@ app.use(function(req, res, next) {
     );
     next();
   });
+
+  app.use(cors({
+    
+    origin:'*',
+    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+}))
+app.use(express.json()) 
   
+const controllers = require('./controllers');
+const verifyToken = require('../middlewares/verifyToken');
+const cursosCtrl = require ('./controllers/cursos.controller')
+const StudentCtrl = require('./controllers/student.controller')
+
+
 
 app.set('port', process.env.PORT || 4000) 
 app.get('/', (req,res)=>res.send('h'))
